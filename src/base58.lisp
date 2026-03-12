@@ -152,6 +152,10 @@ EXAMPLES:
   (base58check-encode #x05 script-hash) => \"3...\""
   (let* ((payload-bytes (etypecase payload
                           ((vector (unsigned-byte 8)) payload)
+                          (simple-vector
+                           (make-array (length payload)
+                                       :element-type '(unsigned-byte 8)
+                                       :initial-contents payload))
                           (string (map '(vector (unsigned-byte 8))
                                       #'char-code payload))))
          (version-payload (make-array (1+ (length payload-bytes))
