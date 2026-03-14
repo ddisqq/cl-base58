@@ -5,14 +5,14 @@
   :description "Bitcoin-style Base58 and Base58Check encoding for Common Lisp"
   :author "Parkian Company LLC"
   :license "BSD-3-Clause"
-  :version "1.0.0"
+  :version "0.1.0"
   :serial t
   :components ((:file "package")
                (:module "src"
                 :serial t
                 :components ((:file "sha256")
                              (:file "base58"))))
-  :in-order-to ((test-op (test-op #:cl-base58/test))))
+  :in-order-to ((asdf:test-op (test-op #:cl-base58/test))))
 
 (asdf:defsystem #:cl-base58/test
   :description "Tests for cl-base58"
@@ -20,7 +20,7 @@
   :serial t
   :components ((:module "test"
                 :components ((:file "test-base58"))))
-  :perform (test-op (o c)
+  :perform (asdf:test-op (o c)
              (let ((result (uiop:symbol-call :cl-base58.test :run-tests)))
                (unless result
                  (error "Tests failed")))))
