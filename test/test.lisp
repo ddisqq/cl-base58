@@ -1,3 +1,6 @@
+;; Copyright (c) 2024-2026 Parkian Company LLC. All rights reserved.
+;; SPDX-License-Identifier: BSD-3-Clause
+
 (defpackage #:cl-base58.test
   (:use #:cl #:cl-base58)
   (:export #:run-tests))
